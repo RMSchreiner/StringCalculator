@@ -53,29 +53,96 @@ public class testStringCalculator {
 		assertEquals(19,result);
 
 	}
-	@Test
-	void testNewLine() {//not working at the moment
+	@Test   //not working with multiple delimiters
+	void testNewLine() {
 		String number = "1\n2,3";
 		
 		//act 
 		int result = StringCalculator.add(number);
 		
 		//assert
-		assertEquals(4,result);
+		assertEquals(6,result);
 
 	}
-	@Test
-	void testDelimiter() {//not working at the moment
-		String number = " 1,\n1,2";
+	@Test    //could not figure out how to add \n line with more than one delimiter
+	void testDelimiter() {
+		String number = "//;\n1;2";
 		
 		//act 
 		int result = StringCalculator.add(number);
 		
 		//assert
-		assertEquals(4,result);
+		assertEquals(3,result);
 	
 	
 	}	
+	
+	@Test    //could not figure out how to add \n line with more than one delimiter
+	void testDiffDelimiter() {
+		String number = "//;,!1;2";
+		
+		//act 
+		int result = StringCalculator.add(number);
+		
+		//assert
+		assertEquals(3,result);
+		
+	}	
+		
+		@Test    //could not figure out how to add \n line with more than one delimiter
+		void testNegativeNums() {
+			String number = "-1,-3,2";
+			
+			//act 
+			int result = StringCalculator.add(number);
+			
+			//assert
+			assertEquals(2,result);
+			
+	}	
+		
+		@Test    //could not figure out how to add \n line with more than one delimiter
+		void testBigNumbers() {
+			String number = "2,1005";
+			
+			//act 
+			int result = StringCalculator.add(number);
+			
+			//assert
+			assertEquals(2,result);
+	
+}	
+		
+		@Test    //could not figure out how to add \n line with more than one delimiter
+		void testDelimiterLength() {
+			String number = "//,,,3,,,4,,,7";
+			
+			//act 
+			int result = StringCalculator.add(number);
+			
+			//assert
+			assertEquals(14,result);
+	}
+		
+		@Test    //could not figure out how to add \n line with more than one delimiter
+		void testMultipleDilimeters() {
+			String number = "//,;;,,3,,!,4,,,7";
+			
+			//act 
+			int result = StringCalculator.add(number);
+			
+			//assert
+			assertEquals(14,result);
+		
+		
+		
+		
+		
+		
+		
+		
+		}		
+		
 	
 }	
 	
